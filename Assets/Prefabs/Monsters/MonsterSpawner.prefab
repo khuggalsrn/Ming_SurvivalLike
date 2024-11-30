@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7857119016374892892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7857119016374892881}
+  - component: {fileID: 7857119016374892894}
+  - component: {fileID: 7857119016374892895}
+  m_Layer: 0
+  m_Name: MonsterSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7857119016374892881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7857119016374892892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.420591, y: 10.083739, z: -16.517206}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7857119016374892894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7857119016374892892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f11656535c15614f94dbbde0bb69d7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterPrefabs:
+  - monsterPrefab: {fileID: 3540578194448409374, guid: 2722fecbcaddfaa479a5133f5ad1ca93, type: 3}
+    spawnOnce: 0
+  - monsterPrefab: {fileID: 3463213974506927249, guid: 22424be780c1a364b8ba565563759933, type: 3}
+    spawnOnce: 0
+  - monsterPrefab: {fileID: 1733243058174265462, guid: 93ccd5ec94b3c6a49a1e56fbe8caa385, type: 3}
+    spawnOnce: 0
+  - monsterPrefab: {fileID: 4598516457434727088, guid: f6a1a128aab822f4b93771545c9c1115, type: 3}
+    spawnOnce: 0
+  - monsterPrefab: {fileID: 630775209584790977, guid: 82c370098a9b258418efbf34e67bc5e8, type: 3}
+    spawnOnce: 0
+  - monsterPrefab: {fileID: 3191197425991974621, guid: dc21e0c1da1e2454f97c7947da19505c, type: 3}
+    spawnOnce: 0
+  - monsterPrefab: {fileID: 5492558259536258613, guid: 0c9a8daa5bdab994fa9c0a319175e274, type: 3}
+    spawnOnce: 0
+  - monsterPrefab: {fileID: 6946423372565806283, guid: ebedb4d284189ca4dba576bedf8a2459, type: 3}
+    spawnOnce: 0
+  - monsterPrefab: {fileID: 180092366471477109, guid: aeb22643f44251b4fa731dca58710f00, type: 3}
+    spawnOnce: 0
+  - monsterPrefab: {fileID: 7293631980966756366, guid: bcb478c1591f8c04e9c6810c3699be31, type: 3}
+    spawnOnce: 0
+  - monsterPrefab: {fileID: 8640586871937556594, guid: b7bf5ac8e8b742f4698c8b8eb1fddcb1, type: 3}
+    spawnOnce: 1
+  - monsterPrefab: {fileID: 3211755223090362693, guid: e76eebc541b37b347abb782c56907fb3, type: 3}
+    spawnOnce: 1
+  - monsterPrefab: {fileID: 7083000909176434782, guid: 59b44069fe8fb334e9ef51115157a1bb, type: 3}
+    spawnOnce: 1
+  spawnAreaMin: {x: 0, y: 0}
+  spawnAreaMax: {x: 0, y: 0}
+  spawnRate: 5
+  spawnInterval: 20
+  spawnRadius: 5
+--- !u!135 &7857119016374892895
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7857119016374892892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
