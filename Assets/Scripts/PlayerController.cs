@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float jumpForce = 100f;
-    public LayerMask groundLayer; // 마우스 커서를 기준으로 바라볼 레이어
-    private Rigidbody rb;
-    private Animator animator;
+    GameObject MousePointer;
+    [SerializeField] float jumpForce = 100f;
+    Rigidbody rb;
+    Animator animator;
     float Dashing = 10f;
     bool Dashed = false;
-    [SerializeField] private bool isGrounded = true;
+    [SerializeField] bool isGrounded = true;
     Text DashCool;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         DashCool = GameObject.Find("DashCool").GetComponent<Text>();
+        MousePointer = DataBase.Instance.transform.GetChild(0).gameObject;
     }
     private void FixedUpdate()
     {
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             // Rigidbody를 이용해 이동 처리
             Vector3 moveVelocity = moveDirection * PlayerStatus.Instance.Value_Speed;
-            if (Input.GetKey(KeyCode.LeftShift) && PlayerStatus.Instance.Stamina[PlayerStatus.Instance.CurWeaponnum] >= 10 &&
+            if (Input.GetKey(KeyCode.LeftShift) && PlayerStatus.Instance.Staminas[PlayerStatus.Instance.CurWeaponnum] >= 10 &&
                 Dashing <= 0f)
             {
                 Dashed = true;
@@ -66,7 +67,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision);
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
@@ -74,21 +74,61 @@ public class PlayerController : MonoBehaviour
     }
     void Dash(Vector3 Dir)
     {
-        PlayerStatus.Instance.Stamina[PlayerStatus.Instance.CurWeaponnum] -= 10;
-        rb.AddForce(Dir * 50, ForceMode.Impulse);
+        float dashDistance = Dir.magnitude;
+        PlayerStatus.Instance.Staminas[PlayerStatus.Instance.CurWeaponnum] -= 10;
+        
+        // 전방 방향으로 대시 거리만큼 순간이동
+        Vector3 dashTarget = transform.position + Dir.normalized * dashDistance;
+        transform.position = dashTarget;
+
+        // 아래로 Raycast를 쏴서 Ground 찾기
+        RaycastHit[] hits = Physics.RaycastAll(transform.position + Vector3.up * 5f, Vector3.down, 17f, LayerMask.GetMask("Ground","Object"));
+        if (hits.Length > 0)
+        {
+            Debug.Log("바닥찾았다");
+            // 현재 위치와 가장 가까운 y값을 찾기
+            float closestY = float.MaxValue;
+            Vector3 closestPoint = transform.position;
+
+            foreach (var hit in hits)
+            {
+                if (Mathf.Abs(hit.point.y - transform.position.y) < Mathf.Abs(closestY - transform.position.y))
+                {
+                    closestY = hit.point.y;
+                    closestPoint = hit.point;
+                }
+            }
+
+            // 가장 가까운 지점으로 위치를 이동
+            transform.position = new Vector3(transform.position.x, closestY+1f, transform.position.z);
+        }
+
         GetComponent<PlayerAttack>().AttackFalse();
     }
     void RotateTowardsMouse()
     {
         // 마우스 위치로부터 Ray 생성
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
+        
         // Ray가 특정 레이어(groundLayer)에 닿았는지 확인
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer))
+        RaycastHit[] hits =Physics.RaycastAll(ray, Mathf.Infinity, LayerMask.GetMask("Ground","Monster","Object","Roof"));
+        if (hits.Length > 0)
         {
+            RaycastHit closestHit = hits[0];
+            float closestDistance = Mathf.Abs(transform.position.y - hits[0].point.y);
+            foreach (RaycastHit hit in hits)
+            {
+                float distance = Mathf.Abs(transform.position.y - hit.point.y);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestHit = hit;
+                }
+            }
+            MousePointer.transform.position = closestHit.point;
             // 캐릭터가 마우스 커서를 바라보도록 회전
-            Vector3 lookDirection = hit.point - transform.position; // 캐릭터와 마우스 위치 간의 벡터
+            Vector3 lookDirection = closestHit.point - transform.position; // 캐릭터와 마우스 위치 간의 벡터
             lookDirection.y = 0; // 높이 차이를 무시
             Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
