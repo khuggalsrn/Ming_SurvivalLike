@@ -2,21 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-[CreateAssetMenu(fileName = "NewSpawner", menuName = "Spawner/Spawner Data")]
-public class SpawnerInfo : ScriptableObject
-{
-    public List<GameObject> SpawnPrefabs;
-    public List<int> SpawnOnces;
-    public Vector2 spawnAreaMin; // 스폰 영역 최소값 (X, Z)
-    public Vector2 spawnAreaMax; // 스폰 영역 최대값 (X, Z)
-    public float spawnRate = 0.5f; // 초당 생성할 몬스터 수
-    public float spawnInterval = 20; // 다음 몬스터 그룹으로 넘어가는 시간
-    public float spawnRadius = 5f; // NavMesh.SamplePosition 시 허용 반경
-    public float InitialSpawnDelay = 0f; // 첫 몬스터 스폰 전에 기다리는 시간
-}
+
 public class MonsterSpawner : MonoBehaviour
 {
-
     [System.Serializable]
     public class MonsterInfo
     {
@@ -38,8 +26,8 @@ public class MonsterSpawner : MonoBehaviour
     //
     //
     //
-    void Start()
-    {
+    IEnumerator Initialize(float time){
+        yield return new WaitForSeconds(time);
         monsterPrefabs = new List<MonsterInfo>(Spawner.SpawnPrefabs.Count);
         poolSize = Mathf.FloorToInt(Spawner.spawnRate * Spawner.spawnInterval);
         if (Spawner.spawnAreaMin == Vector2.zero && Spawner.spawnAreaMax == Vector2.zero)
@@ -63,6 +51,10 @@ public class MonsterSpawner : MonoBehaviour
             }
         }
         SpawnMonster();//1초에 1마리 2초동안이면 2마리 소환되어야하는데 소환이 안되는 경우가 있음. 첫 몬스터 소환
+    }
+    void Start()
+    {
+        StartCoroutine(Initialize(Spawner.InitialSpawnDelay));
     }
     void FixedUpdate()
     {
