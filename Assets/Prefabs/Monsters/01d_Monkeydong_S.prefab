@@ -628,7 +628,6 @@ GameObject:
   - component: {fileID: -6285324598607636968}
   - component: {fileID: -380794335006341209}
   - component: {fileID: -3814686842884988012}
-  - component: {fileID: -4396641406709812735}
   - component: {fileID: 7096206413422314096}
   - component: {fileID: 8026642947185724031}
   m_Layer: 9
@@ -690,7 +689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f944f8cb59dad304b8701e85db7a8fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 5
   isDead: 0
 --- !u!114 &-3814686842884988012
 MonoBehaviour:
@@ -704,26 +702,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5f570a8397b8b40976a7644875e13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackObejct: {fileID: 0}
-  Attack: {fileID: 0}
   Range: 0
   isAttacking: 0
   navMeshAgent: {fileID: 0}
-  MoveSpeed: 1.5
---- !u!114 &-4396641406709812735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4598516457434727088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f5026ce108ab4a44a06832c46d73830, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemDrop:
-  - {fileID: 2582242192489943199, guid: 06de0d0e015701b46bea0da4145496f8, type: 3}
+  moveSpeed: 0
 --- !u!95 &7096206413422314096
 Animator:
   serializedVersion: 5
