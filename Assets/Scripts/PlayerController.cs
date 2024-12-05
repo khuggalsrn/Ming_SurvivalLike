@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, closestY+1f, transform.position.z);
         }
 
+
         GetComponent<PlayerAttack>().AttackFalse();
     }
     void RotateTowardsMouse()
