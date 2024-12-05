@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 93e1876e5f7f51e4483c07f616eb5a59
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BasicAttack: {instanceID: 0}
+  - Skill1: {instanceID: 0}
+  - Skill2: {instanceID: 0}
+  - Skill2Range: {instanceID: 0}
+  - Basic: {fileID: 2146490896665694394, guid: cbf744ad306872544b80176904761ba4, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
