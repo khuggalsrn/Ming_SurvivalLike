@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 684846dc7f5f5e44eb363b6c94c5eb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1008504106310818037, guid: 5c562a94e367da64aafe4cc5b1b5106c, type: 3}
+  Alpha0: {fileID: 2100000, guid: 123405868e3a0834b9567b6f35d3a8cd, type: 2}
+  Alpha005: {fileID: 2100000, guid: da9420385335b83438065d4ada1b4428, type: 2}
 --- !u!114 &-1337456557644282666
 MonoBehaviour:
   m_ObjectHideFlags: 0
