@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f8e42459832bac40a6e542960cc0f69, type: 3}
-  m_Name: "Skill_\u82B1\u7121\u5341\u65E5\u7D05"
+  m_Name: FirearmSkill2
   m_EditorClassIdentifier: 
-  skillname: "\u82B1\u7121\u5341\u65E5\u7D05"
+  skillname: SniperDoubleShot
   SkillAttackPower: 8
   Cooltime: 0
-  Effect: {fileID: 3885490147901515252, guid: 9849483c370ffec43a912114bf09cc8f, type: 3}
-  animationname: SwordSkill2
+  Effect: {fileID: 0}
+  animationname: FirearmSkill2
+  SkillObject: {fileID: 0}

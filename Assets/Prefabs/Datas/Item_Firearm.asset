@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33fec80aed9f1db4c8a4a547ce2ce6f7, type: 3}
-  m_Name: Item_Sword
+  m_Name: Item_Firearm
   m_EditorClassIdentifier: 
-  itemName: LongSword
+  itemName: Firearm
+  WeaponLabel: 1
   WeaponPower: 1
-  Item: {fileID: 3591342497989135093, guid: eb0685b5793f8f14ca26f8e6067153b0, type: 3}
+  Item: {fileID: 7638282068657034901, guid: 96b0937ea6a9126438fb3d3d632baaa7, type: 3}
   skillLv: 0
-  skill1: {fileID: 11400000, guid: d384bf11dbd9f55409cb276241bbe8d9, type: 2}
-  skill2: {fileID: 11400000, guid: 29a739be439386441ac61a31379669b5, type: 2}
+  skill1: {fileID: 11400000, guid: 52b51a05595a7ee48a9ad71fafee128f, type: 2}
+  skill2: {fileID: 11400000, guid: 249ce54f715caa04a83200782d98e5dc, type: 2}
   FlipBurst: {fileID: 11400000, guid: 412025f13e6b90946beb238fb3febe1b, type: 2}
-  WeaponImage: {fileID: 2800000, guid: 9433d6f37c968794ca36e5b4f20c62b5, type: 3}
+  WeaponImage: {fileID: 2800000, guid: 9b02ae049c15aca498db1cb2bafa0ebe, type: 3}

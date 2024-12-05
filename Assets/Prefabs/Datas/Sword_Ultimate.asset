@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8e42459832bac40a6e542960cc0f69, type: 3}
+  m_Name: Sword_Ultimate
+  m_EditorClassIdentifier: 
+  skillname: SwordFlipBurst
+  SkillAttackPower: 1
+  Cooltime: 0
+  Effect: {fileID: 1483448975978825276, guid: bee07531bf54a244493233782711ee93, type: 3}
+  animationname: 
+  SkillObject: {fileID: 5236406028291266256, guid: 7c1f574b37efe43489908128f512e517, type: 3}
