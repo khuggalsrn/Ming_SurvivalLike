@@ -496,11 +496,10 @@ GameObject:
   - component: {fileID: 7557338403073208010}
   - component: {fileID: 831331981757342641}
   - component: {fileID: -7408489054996913943}
-  - component: {fileID: -1939366768332739240}
   - component: {fileID: 1421293321988811569}
-  - component: {fileID: -4974898290667811931}
-  m_Layer: 0
-  m_Name: "03_FishGuard_\u0412"
+  - component: {fileID: 6461124432331027879}
+  m_Layer: 9
+  m_Name: "03j_FishGuard_\u0412"
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -513,7 +512,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5625715869436521457}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -558,7 +557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f944f8cb59dad304b8701e85db7a8fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 500
+  MaxHp: 50000
+  isDead: 0
 --- !u!114 &831331981757342641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,8 +574,8 @@ MonoBehaviour:
   AttackObejct: {fileID: 0}
   Attack: {fileID: 0}
   Range: 0
-  isOnRange: 0
   isAttacking: 0
+  navMeshAgent: {fileID: 0}
   MoveSpeed: 3
 --- !u!114 &-7408489054996913943
 MonoBehaviour:
@@ -591,19 +591,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemDrop:
   - {fileID: 2582242192489943199, guid: 06de0d0e015701b46bea0da4145496f8, type: 3}
---- !u!65 &-1939366768332739240
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5625715869436521457}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 3, z: 1}
-  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!95 &1421293321988811569
 Animator:
   serializedVersion: 5
@@ -625,22 +612,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &-4974898290667811931
-Rigidbody:
+--- !u!136 &6461124432331027879
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5625715869436521457}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &5997600216030991888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,6 +1249,10 @@ PrefabInstance:
     - target: {fileID: 8536029948010977107, guid: d406954ae1f1ec846a133c98fe37b41f, type: 3}
       propertyPath: m_Name
       value: 30_Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536029948010977107, guid: d406954ae1f1ec846a133c98fe37b41f, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d406954ae1f1ec846a133c98fe37b41f, type: 3}

@@ -718,11 +718,10 @@ GameObject:
   - component: {fileID: -9219226587543157621}
   - component: {fileID: 371374424480160551}
   - component: {fileID: -4331604288939393563}
-  - component: {fileID: 5939095732155796036}
   - component: {fileID: 386701722180889574}
-  - component: {fileID: -6659050934249696585}
-  m_Layer: 0
-  m_Name: 03_Nosedman_B
+  - component: {fileID: 3793322650447319486}
+  m_Layer: 9
+  m_Name: 03e_Nosedman_B
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -735,7 +734,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6410358755079367462}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -779,7 +778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f944f8cb59dad304b8701e85db7a8fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 2
+  MaxHp: 4000
+  isDead: 0
 --- !u!114 &371374424480160551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,8 +795,8 @@ MonoBehaviour:
   AttackObejct: {fileID: 0}
   Attack: {fileID: 0}
   Range: 0
-  isOnRange: 0
   isAttacking: 0
+  navMeshAgent: {fileID: 0}
   MoveSpeed: 3.5
 --- !u!114 &-4331604288939393563
 MonoBehaviour:
@@ -812,19 +812,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemDrop:
   - {fileID: 2582242192489943199, guid: 06de0d0e015701b46bea0da4145496f8, type: 3}
---- !u!65 &5939095732155796036
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6410358755079367462}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 3, z: 1}
-  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!95 &386701722180889574
 Animator:
   serializedVersion: 5
@@ -846,22 +833,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &-6659050934249696585
-Rigidbody:
+--- !u!136 &3793322650447319486
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6410358755079367462}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &6494690439784506201
 GameObject:
   m_ObjectHideFlags: 0

@@ -855,11 +855,10 @@ GameObject:
   - component: {fileID: 4939621404236768727}
   - component: {fileID: 751723215749427808}
   - component: {fileID: -8223897698695643001}
-  - component: {fileID: 448333069214454544}
   - component: {fileID: 4602718078142738590}
-  - component: {fileID: 1963941377971860278}
-  m_Layer: 0
-  m_Name: 03_Monkeydong_B
+  - component: {fileID: 2329832190287835155}
+  m_Layer: 9
+  m_Name: 03d_Monkeydong_B
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -872,7 +871,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7083000909176434782}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -917,7 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f944f8cb59dad304b8701e85db7a8fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 100
+  MaxHp: 3000
+  isDead: 0
 --- !u!114 &751723215749427808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,8 +933,8 @@ MonoBehaviour:
   AttackObejct: {fileID: 0}
   Attack: {fileID: 0}
   Range: 0
-  isOnRange: 0
   isAttacking: 0
+  navMeshAgent: {fileID: 0}
   MoveSpeed: 3
 --- !u!114 &-8223897698695643001
 MonoBehaviour:
@@ -951,19 +951,6 @@ MonoBehaviour:
   ItemDrop:
   - {fileID: 2582242192489943199, guid: 06de0d0e015701b46bea0da4145496f8, type: 3}
   - {fileID: 7165946373078395541, guid: 0f2077006ed15d54cabcd0107c7c6865, type: 3}
---- !u!65 &448333069214454544
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7083000909176434782}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 3, z: 1}
-  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!95 &4602718078142738590
 Animator:
   serializedVersion: 5
@@ -985,22 +972,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &1963941377971860278
-Rigidbody:
+--- !u!136 &2329832190287835155
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7083000909176434782}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &7237863976961771190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1247,10 @@ PrefabInstance:
     - target: {fileID: 8536029948010977107, guid: d406954ae1f1ec846a133c98fe37b41f, type: 3}
       propertyPath: m_Name
       value: 30_Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536029948010977107, guid: d406954ae1f1ec846a133c98fe37b41f, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d406954ae1f1ec846a133c98fe37b41f, type: 3}

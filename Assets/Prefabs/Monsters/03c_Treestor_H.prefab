@@ -298,11 +298,10 @@ GameObject:
   - component: {fileID: 1166049605748531014}
   - component: {fileID: 384272498831833407}
   - component: {fileID: -3289657034869552589}
-  - component: {fileID: -176470529156729590}
   - component: {fileID: 8158708484255512965}
-  - component: {fileID: 7965067136017299314}
-  m_Layer: 0
-  m_Name: 03_Treestor_H
+  - component: {fileID: 3031322493582367016}
+  m_Layer: 9
+  m_Name: 03c_Treestor_H
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +314,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3211755223090362693}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -360,7 +359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f944f8cb59dad304b8701e85db7a8fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 70
+  MaxHp: 2000
+  isDead: 0
 --- !u!114 &384272498831833407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,8 +376,8 @@ MonoBehaviour:
   AttackObejct: {fileID: 0}
   Attack: {fileID: 0}
   Range: 0
-  isOnRange: 0
   isAttacking: 0
+  navMeshAgent: {fileID: 0}
   MoveSpeed: 3
 --- !u!114 &-3289657034869552589
 MonoBehaviour:
@@ -394,19 +394,6 @@ MonoBehaviour:
   ItemDrop:
   - {fileID: 2582242192489943199, guid: 06de0d0e015701b46bea0da4145496f8, type: 3}
   - {fileID: 615282262144587432, guid: 9f1e07efe14226f4bbdcb22eb2b1eef0, type: 3}
---- !u!65 &-176470529156729590
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3211755223090362693}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 3, z: 1}
-  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!95 &8158708484255512965
 Animator:
   serializedVersion: 5
@@ -428,22 +415,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!54 &7965067136017299314
-Rigidbody:
+--- !u!136 &3031322493582367016
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3211755223090362693}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &3552627879645332046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,6 +1246,10 @@ PrefabInstance:
     - target: {fileID: 8536029948010977107, guid: d406954ae1f1ec846a133c98fe37b41f, type: 3}
       propertyPath: m_Name
       value: 30_Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536029948010977107, guid: d406954ae1f1ec846a133c98fe37b41f, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d406954ae1f1ec846a133c98fe37b41f, type: 3}
