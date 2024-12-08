@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f944f8cb59dad304b8701e85db7a8fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mob: {fileID: 11400000, guid: 997b52abc4850b7438750b53a6b4b10b, type: 2}
   isDead: 0
 --- !u!114 &1487677885282490151
 MonoBehaviour:
