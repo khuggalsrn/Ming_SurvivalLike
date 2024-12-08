@@ -25,15 +25,17 @@ public class GunAttack : WeaponAttack
     float timer3 = 0f;
     bool TimeBullet = false;
     public GunSkillObject Mines;
-    float MineTimer = 0f;
-    GameObject Mine;
+    [SerializeField] float MineTimer = 0f;
+    [SerializeField] GameObject Mine;
     float BonusDamage = 1f;
     float BossDrainStamina = 0;
     bool StopBullet = false;
+    bool TankMine = false;
     Animator animator;
     float MineDamage => (weaponbasicpower + AddPower + PlayerStatus.Instance.Value_AdditionalWeaponPower)
             * PlayerStatus.Instance.Value_LastDamage
             * BonusDamage;
+    [SerializeField]
     float FinalDamage =>
             (weaponbasicpower + AddPower + PlayerStatus.Instance.Value_AdditionalWeaponPower)
             * cur_AttackPower
@@ -61,6 +63,13 @@ public class GunAttack : WeaponAttack
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(false);
         ShotGun.gameObject.SetActive(false);
     }
+    private void OnDisable()
+    {
+        if (basiccor != null) StopCoroutine(basiccor);
+        transform.GetChild((int)Arms.Pistol).gameObject.SetActive(false);
+        transform.GetChild((int)Arms.Sniper).gameObject.SetActive(false);
+        ShotGun.gameObject.SetActive(false);
+    }
     void FixedUpdate()
     {
         MineTimer += 0.02f;
@@ -70,9 +79,19 @@ public class GunAttack : WeaponAttack
             StopBullet = true;
             timer3 = 0f;
         }
-        if (MineTimer > 30f && Mine){
+        if (MineTimer > 30f && Mine)
+        {
             MineTimer = 0f;
-            Instantiate(Mine, PlayerStatus.Instance.transform.position, Quaternion.identity).GetComponent<GunSkillObject>().MineDamage = this.MineDamage;
+            GameObject temp = Instantiate(Mine, PlayerStatus.Instance.transform);
+            temp.transform.SetParent(null, true);
+            if (TankMine)
+            {
+                temp.GetComponent<GunSkillObject>().MineDamage = 15 * this.MineDamage;
+            }
+            else
+            {
+                temp.GetComponent<GunSkillObject>().MineDamage = 6 * this.MineDamage;
+            }
         }
     }
     public override bool OnAttack(int atk)
@@ -97,7 +116,7 @@ public class GunAttack : WeaponAttack
                 if (CanFlipBurst)
                 {
                     cur_AttackPower = FlipBurst.SkillAttackPower;
-                    StartCoroutine(FlipBurstEffect(FlipBurst.Effect));
+                    // StartCoroutine(FlipBurstEffect(FlipBurst.Effect));
                     return true;
                 }
                 else
@@ -115,20 +134,30 @@ public class GunAttack : WeaponAttack
         // transform.GetChild(atk).GetComponent<BoxCollider>().gameObject.SetActive(false);
 
     }
-    void ShotEffect(Vector3 Pos, bool Long){
+    IEnumerator DestroyParticleSystem(ParticleSystem part, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (part != null)
+        {
+            part.Stop();
+            Destroy(part.gameObject);
+        }
+    }
+    void ShotEffect(Vector3 Pos, bool Long)
+    {
         ParticleSystem part = Instantiate(Basic);
         part.transform.rotation = PlayerStatus.Instance.transform.rotation;
         part.transform.Rotate(90, 0, 0);
         part.transform.localScale *= PlayerStatus.Instance.Value_AttackRange / PlayerStatus.Instance.transform.localScale.x;
         part.transform.position = Pos;
-        if(Long) part.transform.position += PlayerStatus.Instance.transform.forward;
-        Destroy(part, 1f);
+        if (Long) part.transform.position += PlayerStatus.Instance.transform.forward;
+        DestroyParticleSystem(part, 5f);
         GameObject temp = Instantiate(BasicEffectObject);
         temp.transform.rotation = PlayerStatus.Instance.transform.rotation;
         temp.transform.Rotate(0, 90, 0);
         temp.transform.localScale *= PlayerStatus.Instance.Value_AttackRange / PlayerStatus.Instance.transform.localScale.x;
         temp.transform.position = Pos;
-        if(Long) temp.transform.position += PlayerStatus.Instance.transform.forward;
+        if (Long) temp.transform.position += PlayerStatus.Instance.transform.forward;
         Destroy(temp, 0.1f);
     }
     IEnumerator BasicEffect()
@@ -136,9 +165,9 @@ public class GunAttack : WeaponAttack
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(false);
         ShotGun.SetActive(false);
         transform.GetChild((int)Arms.Pistol).gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.225f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.225f / 1.2f * animator.GetFloat("AniSpeed"));
         Fire(Pistol.transform.position);
-        yield return new WaitForSeconds(0.65f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.65f / 1.2f * animator.GetFloat("AniSpeed"));
         basiccor = StartCoroutine(BasicEffect2());
     }
     IEnumerator BasicEffect2()
@@ -146,9 +175,9 @@ public class GunAttack : WeaponAttack
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(false);
         cur_AttackPower = 2 * weaponbasicpower;
         ShotGun.SetActive(true);
-        yield return new WaitForSeconds(0.15f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.15f / 1.2f * animator.GetFloat("AniSpeed"));
         Fire(ShotGun.transform.position);
-        yield return new WaitForSeconds(0.75f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.75f / 1.2f * animator.GetFloat("AniSpeed"));
         ShotGun.SetActive(false);
         cur_AttackPower = weaponbasicpower;
         basiccor = StartCoroutine(BasicEffect3());
@@ -156,13 +185,13 @@ public class GunAttack : WeaponAttack
     IEnumerator BasicEffect3()
     {
         cur_AttackPower = 3 * weaponbasicpower;
-        yield return new WaitForSeconds(0.6f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.6f / 1.2f * animator.GetFloat("AniSpeed"));
         ShotGun.SetActive(false);
         transform.GetChild((int)Arms.Pistol).gameObject.SetActive(false);
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.4f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.4f / 1.2f * animator.GetFloat("AniSpeed"));
         Fire(Sniper.transform.position, true);
-        yield return new WaitForSeconds(0.6f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.6f / 1.2f * animator.GetFloat("AniSpeed"));
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(false);
         transform.GetChild((int)Arms.Pistol).gameObject.SetActive(true);
         cur_AttackPower = weaponbasicpower;
@@ -172,13 +201,13 @@ public class GunAttack : WeaponAttack
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(false);
         cur_AttackPower = 2 * skill1.SkillAttackPower;
         ShotGun.SetActive(true);
-        yield return new WaitForSeconds(0.25f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.25f / 1.2f * animator.GetFloat("AniSpeed"));
         Fire(ShotGun.transform.position);
-        yield return new WaitForSeconds(0.55f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.55f / 1.2f * animator.GetFloat("AniSpeed"));
         Fire(ShotGun.transform.position);
-        yield return new WaitForSeconds(0.50f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.50f / 1.2f * animator.GetFloat("AniSpeed"));
         Fire(ShotGun.transform.position);
-        yield return new WaitForSeconds(0.5f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.5f / 1.2f * animator.GetFloat("AniSpeed"));
         ShotGun.SetActive(false);
         cur_AttackPower = weaponbasicpower;
     }
@@ -188,9 +217,9 @@ public class GunAttack : WeaponAttack
         ShotGun.SetActive(false);
         transform.GetChild((int)Arms.Pistol).gameObject.SetActive(false);
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.25f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.25f / 1.2f * animator.GetFloat("AniSpeed"));
         Fire(Sniper.transform.position, true);
-        yield return new WaitForSeconds(0.965f/1.2f*animator.GetFloat("AniSpeed"));
+        yield return new WaitForSeconds(0.965f / 1.2f * animator.GetFloat("AniSpeed"));
         Fire(Sniper.transform.position, true);
         yield return new WaitForSeconds(1f);
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(false);
@@ -252,15 +281,18 @@ public class GunAttack : WeaponAttack
                 Debug.Log($"Hit Monster: {hitMonster.name}");
                 ParticleSystem temp2 = Instantiate(MobHit, hitMonster.transform);
                 Destroy(temp2.gameObject, 5f);
-                if(StopBullet){
+                if (StopBullet)
+                {
                     hitMonster.GetComponent<NavMeshAgent>().speed = 0;
                 }
-                if(hitMonster.name.Substring(0,4).Equals("BOSS"))
+                if (hitMonster.name.Substring(0, 4).Equals("BOSS"))
                 {
                     PlayerStatus.Instance.Staminas[PlayerStatus.Instance.CurWeaponnum] += BossDrainStamina;
                 }
-                else{
-                    if(TimeBullet){
+                else
+                {
+                    if (TimeBullet)
+                    {
                         hitMonster.GetComponent<MonsterController>().MoveSpeed = 0;
                         hitMonster.GetComponent<NavMeshAgent>().speed = 0;
                     }
@@ -280,6 +312,7 @@ public class GunAttack : WeaponAttack
         timer3 = -180000f;
         StopBullet = false;
         CanFlipBurst = false;
+        TankMine = false;
         MineTimer = 0f;
         Mine = null;
         BonusDamage = 1f;
@@ -304,10 +337,11 @@ public class GunAttack : WeaponAttack
                 BossDrainStamina += 5f;
                 goto case 5;
             case 5:
-                Mine = Mines.Mine6;
+                TankMine = true;
+                Mine = Mines.gameObject;
                 goto case 4;
             case 4:
-                Mine = Mines.Mine5;
+                Mine = Mines.gameObject;
                 goto case 3;
             case 3:
                 CanFlipBurst = true;
