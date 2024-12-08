@@ -5796,28 +5796,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e318d461d85b794c831dcafc7d3350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponInRightHand: {fileID: 0}
-  WeaponInLeftHand: {fileID: 0}
-  CurWeaponnum: 0
-  CurskillLv: 0
-  WeaponsLv: 00000000000000000000000000000000
-  WeaponsSkillLv: 00000000000000000000000000000000
-  WeaponsLabel: 
-  WeaponsDescription: []
-  InvWeapon:
-  - {fileID: 11400000, guid: c4d82008e47553443bd7c0a57fbc5c4f, type: 2}
-  FlipBurstCooltime:
-  - 20
-  - 20
-  - 20
-  - 20
-  StatusLv: 000000000000000000000000000000000000000000000000000000000000000000000000
-  StatPerLv: []
-  PlayerLevel: 0
-  Exp: 0
-  HitPoint: 0
-  Barrior: 0
-  Stamina: []
+  weaponInRightHand: {fileID: 0}
+  weaponInLeftHand: {fileID: 0}
+  curWeaponnum: 0
+  curskillLv: 0
+  weaponsLv: 00000000000000000000000000000000
+  weaponsSkillLv: 00000000000000000000000000000000
+  weaponsLabel: ffffffffffffffffffffffffffffffff
+  weaponsDescription: []
+  invWeapon:
+  - {fileID: 11400000, guid: 8d756cb776c2b304480b8e1daae0a7ed, type: 2}
 --- !u!54 &-3558143222488421147
 Rigidbody:
   m_ObjectHideFlags: 0
