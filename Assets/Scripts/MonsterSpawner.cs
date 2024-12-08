@@ -6,20 +6,20 @@ using UnityEngine.AI;
 public class MonsterSpawner : MonoBehaviour
 {
     [System.Serializable]
-    public class MonsterInfo
+    class MonsterList
     {
         public GameObject monsterPrefab; // 몬스터 프리팹
         public bool spawnOnce = false; // 이 몬스터는 1번만 스폰되는지 여부
     }
     [SerializeField] SpawnerInfo Spawner;
-    List<MonsterInfo> monsterPrefabs; // 스폰할 몬스터 정보 배열
+    List<MonsterList> monsterPrefabs; // 스폰할 몬스터 정보 배열
     private int currentMonsterIndex = 0; // 현재 스폰할 몬스터 인덱스
     private float spawnTimer = 0f; // 스폰 타이머
     private float groupTimer = 0f; // 그룹 전환 타이머    
     private bool hasSpawnedOnce = false; // 현재 몬스터가 한 번만 스폰되었는지 확인
     private int poolSize; // 몬스터 미리 생성
     private Queue<GameObject> monsterPool = new Queue<GameObject>(); // 미리 생성된 몬스터
-    [SerializeField] bool iswaiting = false;
+    [SerializeField] bool iswaiting = true;
     //
     //
     //
@@ -27,8 +27,10 @@ public class MonsterSpawner : MonoBehaviour
     //
     //
     IEnumerator Initialize(float time){
+        iswaiting = true;
         yield return new WaitForSeconds(time);
-        monsterPrefabs = new List<MonsterInfo>(Spawner.SpawnPrefabs.Count);
+        iswaiting = false;
+        monsterPrefabs = new List<MonsterList>(Spawner.SpawnPrefabs.Count);
         poolSize = Mathf.FloorToInt(Spawner.spawnRate * Spawner.spawnInterval);
         if (Spawner.spawnAreaMin == Vector2.zero && Spawner.spawnAreaMax == Vector2.zero)
         {
@@ -38,13 +40,13 @@ public class MonsterSpawner : MonoBehaviour
         // 미리 몬스터 생성
         for (int i = 0; i < Spawner.SpawnPrefabs.Count; i++)
         {
-            MonsterInfo temp = new MonsterInfo { monsterPrefab = Spawner.SpawnPrefabs[i], spawnOnce = false };
+            MonsterList temp = new MonsterList { monsterPrefab = Spawner.SpawnPrefabs[i], spawnOnce = false };
             monsterPrefabs.Add(temp);
             if (Spawner.SpawnOnces.Contains(i)) monsterPrefabs[i].spawnOnce = true;
             var currentMonsterInfo = monsterPrefabs[i];
             for (int j = 0; j < poolSize; j++)
             {
-                GameObject monster = Instantiate(currentMonsterInfo.monsterPrefab);
+                GameObject monster = Instantiate(currentMonsterInfo.monsterPrefab, transform.position, Quaternion.identity);
                 monster.SetActive(false);
                 monsterPool.Enqueue(monster);
                 if (currentMonsterInfo.spawnOnce) break;
@@ -140,19 +142,21 @@ public class MonsterSpawner : MonoBehaviour
             // 스폰 영역에서 랜덤 위치 계산
             Vector3 randomPosition = new Vector3(
                 Random.Range(Spawner.spawnAreaMin.x, Spawner.spawnAreaMax.x),
-                transform.position.y, // Y 값은 NavMesh.SamplePosition에서 계산
+                0, // Y 값은 NavMesh.SamplePosition에서 계산
                 Random.Range(Spawner.spawnAreaMin.y, Spawner.spawnAreaMax.y)
             );
+            randomPosition += this.transform.position;
+            
+            // NavMesh.SamplePosition으로 유효한 위치 확인
+            if (NavMesh.SamplePosition(randomPosition, out NavMeshHit hit, 1f, NavMesh.AllAreas))
+            {
+                // 플레이어와의 안전 거리 확인 -> 미사용
+                // if (Vector3.Distance(hit.position, player.position) >= safeDistance)
+
+                return hit.position;
+
+            }
             return randomPosition;
-            // // NavMesh.SamplePosition으로 유효한 위치 확인
-            // if (NavMesh.SamplePosition(randomPosition, out NavMeshHit hit, spawnRadius, NavMesh.AllAreas))
-            // {
-            //     // 플레이어와의 안전 거리 확인 -> 미사용
-            //     // if (Vector3.Distance(hit.position, player.position) >= safeDistance)
-
-            //     return hit.position;
-
-            // }
         }
 
         // 유효한 위치를 찾지 못한 경우
