@@ -12,15 +12,15 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private int curskillLv;
     [SerializeField] private List<int> weaponsLv = new List<int> { 0, 0, 0, 0 };
     [SerializeField] private List<int> weaponsSkillLv = new List<int> { 0, 0, 0, 0 };
-    [SerializeField] private List<int> weaponsLabel;
+    [SerializeField] private List<int> weaponsLabel = new List<int> {-1,-1,-1,-1};
     [SerializeField] private List<string> weaponsDescription = new List<string>();
     [SerializeField] private List<WeaponData> invWeapon;
 
     // Private fields
     private SphereCollider gainItemRange;
-    private List<float> flipBurstCooltime = new List<float> { 20f, 20f, 20f, 20f };
-    private List<int> statusLv = new List<int>();
-    private List<float> statPerLv = new List<float> { 1f, 0.1f, 0.1f, 25f, 50f, 1f, 0.5f, 0.1f, 1f };
+    private List<float> flipBurstCooltime = new List<float>(4) { 20f, 20f, 20f, 20f };
+    private List<int> statusLv = new List<int>(9) {0,0,0,0,0,0,0,0,0};
+    private List<float> statPerLv = new List<float>(9) { 1f, 0.1f, 0.1f, 25f, 50f, 1f, 0.5f, 0.1f, 1f };
     private float basicGainRange;
     private float systemTime = 0f;
 
@@ -133,6 +133,8 @@ public class PlayerStatus : MonoBehaviour
 
     private void InitializeComponents()
     {
+        WeaponInRightHand = GameObject.FindWithTag("RightWeapon");
+        WeaponInLeftHand = GameObject.FindWithTag("LeftWeapon");
         gainItemRange = transform.GetChild(0).GetComponent<SphereCollider>();
         basicGainRange = gainItemRange.radius;
 
@@ -169,6 +171,8 @@ public class PlayerStatus : MonoBehaviour
 #if UNITY_EDITOR
         statusLv[8] = 40;
         flipBurstCooltime = new List<float> { 0, 0, 0, 0 };
+        statusLv[0] = 8;
+        Exp = 10000;
 #endif
     }
 
@@ -201,6 +205,7 @@ public class PlayerStatus : MonoBehaviour
         for (int i = 0; i < invWeapon.Count; i++)
         {
             UI_Weapon[i].texture = invWeapon[i].WeaponImage;
+            UI_Weapon[i].gameObject.transform.localScale = Vector3.one * 1;
         }
 
         UI_Weapon[curWeaponnum].gameObject.transform.localScale = Vector3.one * 2;
@@ -213,7 +218,7 @@ public class PlayerStatus : MonoBehaviour
     public void GetExpPoint(float exp)
     {
         Exp += exp;
-        while (Exp >= CurNeedExp && PlayerLevel < 50)
+        if (Exp >= CurNeedExp && PlayerLevel < 50)
         {
             Exp -= CurNeedExp;
             LevelUp();
