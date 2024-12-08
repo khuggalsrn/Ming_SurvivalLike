@@ -1,21 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "NewMonster", menuName = "Monster/Monster Data")]
-public class MonsterInfo : ScriptableObject
-{
-    public List<GameObject> items;
-    public float MaxHp;
-    public float AttackPower;
-}
+
 public class MonsterStatus : MonoBehaviour
 {
     // Start is called before the first frame update
     Animator animator;
-    [SerializeField] public readonly MonsterInfo Mob;
+    [SerializeField] public MonsterInfo Mob;
     float MaxHp => Mob.MaxHp;
     List<GameObject> items => Mob.items;
-    float HitPoint;
+    [SerializeField] float HitPoint;
     public bool isDead;
     void Start()
     {
