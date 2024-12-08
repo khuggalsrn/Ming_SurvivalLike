@@ -9,7 +9,7 @@ public class MonsterController : MonoBehaviour
     Animator animator;
     [SerializeField] bool isAttacking = false;
     [SerializeField] NavMeshAgent navMeshAgent;
-    [SerializeField] float moveSpeed;
+    [SerializeField] float moveSpeed = 0;
     float time = 0;
     float AttackPower => stat.Mob.AttackPower;
     public float MoveSpeed{
@@ -29,6 +29,7 @@ public class MonsterController : MonoBehaviour
     }
     void Start()
     {
+        moveSpeed = stat.Mob.MoveSpeed;
         Range = Range == 0 ? 3.25f : Range;
         animator = GetComponent<Animator>();
         // NavMeshAgent 컴포넌트를 가져옴
