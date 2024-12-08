@@ -151,7 +151,7 @@ public class DataBase : MonoBehaviour
         {
             text[i].text = "There are no augmentations here";
             textcontent1[i].text = $"that allow you to level up";
-            textcontent2[i].text = $"";
+            textcontent2[i].text = "There are no augmentations here.\n that allow you to level up";
         }
     }
     void StatusUp(int Aug, int NextLv)
