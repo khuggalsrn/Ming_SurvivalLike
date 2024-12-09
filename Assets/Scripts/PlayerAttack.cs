@@ -103,6 +103,13 @@ public class PlayerAttack : MonoBehaviour
         cur_AttackPower = CurWeaponData.WeaponPower;
         curattacknum = -1;
     }
+    
+    public void Fire(int weapon)
+    {
+        if(CurWeaponObject.GetComponent<GunAttack>() == null) return;
+        if(weapon !=1 ) CurWeaponObject.GetComponent<GunAttack>().Fire(weapon);
+        else CurWeaponObject.GetComponent<GunAttack>().Fire(weapon, "Sniper");
+    }
     void SwitchWeapon(int weaponIndex)
     {
         // 무기 인덱스가 유효한지 확인
