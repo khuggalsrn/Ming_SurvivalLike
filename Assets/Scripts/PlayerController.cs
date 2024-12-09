@@ -127,12 +127,13 @@ public class PlayerController : MonoBehaviour
                     closestHit = hit;
                 }
             }
-            MousePointer.transform.position = closestHit.point;
+            MousePointer.transform.position = closestHit.point + Vector3.up*0.2f;
             // 캐릭터가 마우스 커서를 바라보도록 회전
-            Vector3 lookDirection = closestHit.point - transform.position; // 캐릭터와 마우스 위치 간의 벡터
-            lookDirection.y = 0; // 높이 차이를 무시
-            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+            // Vector3 lookDirection = closestHit.point - transform.position; // 캐릭터와 마우스 위치 간의 벡터
+            // lookDirection.y = 0; // 높이 차이를 무시
+            // Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+            // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 10f * Time.deltaTime);
+            transform.LookAt(new Vector3(closestHit.point.x,transform.position.y, closestHit.point.z));
         }
     }
     private void HandleAnimations(float moveForward)
