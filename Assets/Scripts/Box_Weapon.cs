@@ -14,12 +14,12 @@ public class Box_Weapon : MonoBehaviour
     //
     void Start()
     {
-        weapon = DataBase.Instance.Items[ExcludeRandom(DataBase.Instance.Items.Count, PlayerStatus.Instance.WeaponsLabel)];
-    }
+        }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
+        { 
+            weapon = DataBase.Instance.Items[ExcludeRandom(DataBase.Instance.Items.Count, PlayerStatus.Instance.WeaponsLabel)];
             PlayerStatus.Instance.InvWeapon.Add(weapon);
             PlayerStatus.Instance.WeaponAdd();
             Destroy(gameObject);
