@@ -150,14 +150,14 @@ public class GunAttack : WeaponAttack
         part.transform.Rotate(90, 0, 0);
         part.transform.localScale *= PlayerStatus.Instance.Value_AttackRange / PlayerStatus.Instance.transform.localScale.x;
         part.transform.position = Pos;
-        if (Long) part.transform.position += PlayerStatus.Instance.transform.forward;
+        if (Long) part.transform.position += 2*PlayerStatus.Instance.transform.forward;
         DestroyParticleSystem(part, 5f);
         GameObject temp = Instantiate(BasicEffectObject);
         temp.transform.rotation = PlayerStatus.Instance.transform.rotation;
         temp.transform.Rotate(0, 90, 0);
         temp.transform.localScale *= PlayerStatus.Instance.Value_AttackRange / PlayerStatus.Instance.transform.localScale.x;
         temp.transform.position = Pos;
-        if (Long) temp.transform.position += PlayerStatus.Instance.transform.forward;
+        if (Long) temp.transform.position += 2*PlayerStatus.Instance.transform.forward;
         Destroy(temp, 0.1f);
     }
     IEnumerator BasicEffect()
@@ -166,7 +166,7 @@ public class GunAttack : WeaponAttack
         ShotGun.SetActive(false);
         transform.GetChild((int)Arms.Pistol).gameObject.SetActive(true);
         yield return new WaitForSeconds(0.225f / 1.2f * animator.GetFloat("AniSpeed"));
-        Fire(Pistol.transform.position);
+        // Fire(Pistol.transform.position);
         yield return new WaitForSeconds(0.65f / 1.2f * animator.GetFloat("AniSpeed"));
         basiccor = StartCoroutine(BasicEffect2());
     }
@@ -176,7 +176,7 @@ public class GunAttack : WeaponAttack
         cur_AttackPower = 2 * weaponbasicpower;
         ShotGun.SetActive(true);
         yield return new WaitForSeconds(0.15f / 1.2f * animator.GetFloat("AniSpeed"));
-        Fire(ShotGun.transform.position);
+        // Fire(ShotGun.transform.position);
         yield return new WaitForSeconds(0.75f / 1.2f * animator.GetFloat("AniSpeed"));
         ShotGun.SetActive(false);
         cur_AttackPower = weaponbasicpower;
@@ -190,7 +190,7 @@ public class GunAttack : WeaponAttack
         transform.GetChild((int)Arms.Pistol).gameObject.SetActive(false);
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(true);
         yield return new WaitForSeconds(0.4f / 1.2f * animator.GetFloat("AniSpeed"));
-        Fire(Sniper.transform.position, true);
+        // Fire(Sniper.transform.position, true);
         yield return new WaitForSeconds(0.6f / 1.2f * animator.GetFloat("AniSpeed"));
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(false);
         transform.GetChild((int)Arms.Pistol).gameObject.SetActive(true);
@@ -202,11 +202,11 @@ public class GunAttack : WeaponAttack
         cur_AttackPower = 2 * skill1.SkillAttackPower;
         ShotGun.SetActive(true);
         yield return new WaitForSeconds(0.25f / 1.2f * animator.GetFloat("AniSpeed"));
-        Fire(ShotGun.transform.position);
+        // Fire(ShotGun.transform.position);
         yield return new WaitForSeconds(0.55f / 1.2f * animator.GetFloat("AniSpeed"));
-        Fire(ShotGun.transform.position);
+        // Fire(ShotGun.transform.position);
         yield return new WaitForSeconds(0.50f / 1.2f * animator.GetFloat("AniSpeed"));
-        Fire(ShotGun.transform.position);
+        // Fire(ShotGun.transform.position);
         yield return new WaitForSeconds(0.5f / 1.2f * animator.GetFloat("AniSpeed"));
         ShotGun.SetActive(false);
         cur_AttackPower = weaponbasicpower;
@@ -218,9 +218,9 @@ public class GunAttack : WeaponAttack
         transform.GetChild((int)Arms.Pistol).gameObject.SetActive(false);
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(true);
         yield return new WaitForSeconds(0.25f / 1.2f * animator.GetFloat("AniSpeed"));
-        Fire(Sniper.transform.position, true);
+        // Fire(Sniper.transform.position, true);
         yield return new WaitForSeconds(0.965f / 1.2f * animator.GetFloat("AniSpeed"));
-        Fire(Sniper.transform.position, true);
+        // Fire(Sniper.transform.position, true);
         yield return new WaitForSeconds(1f);
         transform.GetChild((int)Arms.Sniper).gameObject.SetActive(false);
         transform.GetChild((int)Arms.Pistol).gameObject.SetActive(true);
@@ -244,8 +244,25 @@ public class GunAttack : WeaponAttack
         DestroyImmediate(temp);
 
     }
-    void Fire(Vector3 pos, bool Long = false)
+    public void Fire(int weapon, string Long = "Pistol")
     {
+        Vector3 pos;
+        switch (weapon)
+        {
+            case 0:
+                pos = Pistol.transform.position;
+                break;
+            case 1:
+                pos = Sniper.transform.position;
+                break;
+            case 2:
+                pos = ShotGun.transform.position;
+                break;
+            default:
+                pos = Pistol.transform.position;
+                break;
+        }
+        
         // 총알이 발사되는 위치와 방향
         Vector3 firePosition = pos;
         // 마우스 위치로부터 Ray 생성
@@ -261,9 +278,12 @@ public class GunAttack : WeaponAttack
             lookDirection.y = 0f; // 높이 차이를 무시
 
             Vector3 fireDirection = lookDirection;
-            ShotEffect(firePosition, Long);
+            if (Long == "Sniper")
+                ShotEffect(firePosition, true);
+            else
+                ShotEffect(firePosition, false);
 
-            Debug.DrawRay(firePosition, fireDirection * 10f, Color.red, 1f);
+            // // Debug.DrawRay(firePosition, fireDirection * 10f, Color.red, 1f);
 
             // RaycastAll로 충돌한 모든 객체 확인
             RaycastHit[] hits = Physics.SphereCastAll(firePosition, 0.5f, fireDirection, 15f * PlayerStatus.Instance.Value_AttackRange, LayerMask.GetMask("Monster"));
