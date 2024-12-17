@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1adc5c7e7e15cd84188bfb0b441f13d7, type: 3}
+  m_Name: CoreItem_3
+  m_EditorClassIdentifier: 
+  itemID: 3
+  itemScript: "\uC774\uB3D9\uC18D\uB3C4\uAC00 2.5 \uAC10\uC18C\uD558\uC9C0\uB9CC
+    \uBC29\uC5B4\uB825\uC774 200\uC99D\uAC00\uD569\uB2C8\uB2E4."
+  itemName: "\uAC70\uBD81\uC774\uB294 \uB2E8\uB2E8\uD558\uB2E4"
+  IsCoreItem: 1
+  StatEffects:
+  - Stat: 2
+    value: -2.5
+  - Stat: 3
+    value: 200

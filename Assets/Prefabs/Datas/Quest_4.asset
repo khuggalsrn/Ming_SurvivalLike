@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9899155479bbfc4296404d8d9aceb8e, type: 3}
-  m_Name: Mob_Boss1
+  m_Script: {fileID: 11500000, guid: 4a6f2f86e5893e744bb566401cb89b0d, type: 3}
+  m_Name: Quest_4
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 2582242192489943199, guid: 06de0d0e015701b46bea0da4145496f8, type: 3}
+  questName: SkillBoss4
+  questID: 4
+  questAreaRadius: 2.5
+  generatedObject: {fileID: 3211755223090362693, guid: e76eebc541b37b347abb782c56907fb3, type: 3}
+  Rewards:
   - {fileID: 7165946373078395541, guid: 0f2077006ed15d54cabcd0107c7c6865, type: 3}
-  MaxHp: 1500
-  AttackPower: 25
-  MoveSpeed: 4.5

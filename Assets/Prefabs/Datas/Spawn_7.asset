@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 239f98f68a478ef47977e2013d60af19, type: 3}
-  m_Name: Spawn_1
+  m_Name: Spawn_7
   m_EditorClassIdentifier: 
   SpawnPrefabs:
-  - {fileID: 3540578194448409374, guid: 2722fecbcaddfaa479a5133f5ad1ca93, type: 3}
-  - {fileID: 3463213974506927249, guid: 22424be780c1a364b8ba565563759933, type: 3}
-  - {fileID: 1733243058174265462, guid: 93ccd5ec94b3c6a49a1e56fbe8caa385, type: 3}
+  - {fileID: 3176440076577676446, guid: 3db0f5c045f59c943891df22d49abb55, type: 3}
+  - {fileID: 3024015513656969330, guid: d02b4f664f147d7468000581682e5568, type: 3}
+  - {fileID: 4410324970355628400, guid: 34d18e7c1681d0c47b4a0a25f1990d26, type: 3}
   SpawnOnces: 
   spawnAreaMin: {x: 1, y: 1}
   spawnAreaMax: {x: 1, y: 1}
-  spawnRate: 0.25
-  spawnInterval: 40
+  spawnRate: 0.5
+  spawnInterval: 60
   spawnRadius: 5
-  InitialSpawnDelay: 0
+  InitialSpawnDelay: 160

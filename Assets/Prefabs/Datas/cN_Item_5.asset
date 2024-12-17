@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9899155479bbfc4296404d8d9aceb8e, type: 3}
-  m_Name: Mob_Gold
+  m_Script: {fileID: 11500000, guid: 1adc5c7e7e15cd84188bfb0b441f13d7, type: 3}
+  m_Name: cN_Item_5
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 2582242192489943199, guid: 06de0d0e015701b46bea0da4145496f8, type: 3}
-  MaxHp: 1
-  AttackPower: 0.1
-  MoveSpeed: 2
+  itemID: 5
+  itemScript: 
+  itemName: 5
+  IsCoreItem: 0
+  StatEffects: []

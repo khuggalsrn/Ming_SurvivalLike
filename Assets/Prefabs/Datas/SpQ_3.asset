@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 239f98f68a478ef47977e2013d60af19, type: 3}
-  m_Name: Sp_Boss1
+  m_Name: SpQ_3
   m_EditorClassIdentifier: 
   SpawnPrefabs:
-  - {fileID: 8640586871937556594, guid: b7bf5ac8e8b742f4698c8b8eb1fddcb1, type: 3}
-  SpawnOnces: 00000000
+  - {fileID: 5329453551154210951, guid: 440790b2aa8da3944a09b42640182441, type: 3}
+  SpawnOnces: 01000000
   spawnAreaMin: {x: 1, y: 1}
   spawnAreaMax: {x: 1, y: 1}
   spawnRate: 1
   spawnInterval: 1
-  spawnRadius: 5
-  InitialSpawnDelay: 90
+  spawnRadius: 1
+  InitialSpawnDelay: 360

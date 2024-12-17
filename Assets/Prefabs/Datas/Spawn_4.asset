@@ -19,7 +19,7 @@ MonoBehaviour:
   SpawnOnces: 
   spawnAreaMin: {x: 1, y: 1}
   spawnAreaMax: {x: 1, y: 1}
-  spawnRate: 2
-  spawnInterval: 20
+  spawnRate: 0.25
+  spawnInterval: 40
   spawnRadius: 5
-  InitialSpawnDelay: 90
+  InitialSpawnDelay: 110

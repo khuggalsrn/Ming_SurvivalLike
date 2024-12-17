@@ -21,6 +21,6 @@ MonoBehaviour:
   spawnAreaMin: {x: 1, y: 1}
   spawnAreaMax: {x: 1, y: 1}
   spawnRate: 0.5
-  spawnInterval: 20
+  spawnInterval: 40
   spawnRadius: 5
-  InitialSpawnDelay: 15
+  InitialSpawnDelay: 30

@@ -15,6 +15,6 @@ MonoBehaviour:
   items:
   - {fileID: 2582242192489943199, guid: 06de0d0e015701b46bea0da4145496f8, type: 3}
   - {fileID: 7165946373078395541, guid: 0f2077006ed15d54cabcd0107c7c6865, type: 3}
-  MaxHp: 1500
+  MaxHp: 3000
   AttackPower: 50
   MoveSpeed: 4.5
