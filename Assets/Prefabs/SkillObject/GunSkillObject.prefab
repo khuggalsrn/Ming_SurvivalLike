@@ -77,7 +77,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5236406028291266256}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -90,7 +90,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: db60aead8e54bc54eac8ef7ac2c2d7f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1884,6 +1884,10 @@ PrefabInstance:
     - target: {fileID: 907092492072793213, guid: 60bd1f628ab7d184e9a2299da7218810, type: 3}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 907092492072793213, guid: 60bd1f628ab7d184e9a2299da7218810, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 907092492072793213, guid: 60bd1f628ab7d184e9a2299da7218810, type: 3}
       propertyPath: m_IsTrigger

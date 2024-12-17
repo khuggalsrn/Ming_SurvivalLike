@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &349402514070774793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5917624310940324803}
+  - component: {fileID: 394275652924860046}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5917624310940324803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349402514070774793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &394275652924860046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349402514070774793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21ed2edff33fd14c917e24354e8e792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoreItemDatas:
+  - {fileID: 11400000, guid: b41307095c50e3c42b704ac40956744f, type: 2}
+  - {fileID: 11400000, guid: 9227194aab16bf64ea661644122544a2, type: 2}
+  - {fileID: 11400000, guid: 7b275187343f7894f8f3e13f702a24bf, type: 2}
+  - {fileID: 11400000, guid: 53b6fbd139a863c4eae963d676c3140c, type: 2}
+  - {fileID: 11400000, guid: 7776e0c6c2667f3428a8043e4fff5bef, type: 2}
+  - {fileID: 11400000, guid: 1ccdc81806fbb6f4a8227d6483ca5390, type: 2}
+  - {fileID: 11400000, guid: bb551ad9f7162c1488936a0b7d7e9479, type: 2}
+  - {fileID: 11400000, guid: 9856a4259aa12224986861d6a0aa30a2, type: 2}
+  NormalItemDatas:
+  - {fileID: 11400000, guid: dbc4212d1863aef4782e316a19dfa87e, type: 2}
+  - {fileID: 11400000, guid: e6a9098d58d3da34b9cfd9294edc428f, type: 2}
+  - {fileID: 11400000, guid: e28b56892d3ee5d469f33e565fd0ad6c, type: 2}
+  - {fileID: 11400000, guid: 10a9774b87d58eb43b91b7bbd71c4048, type: 2}
+  - {fileID: 11400000, guid: 9cb22deaa8db3ec4d8e822ecf6b7129e, type: 2}
+  - {fileID: 11400000, guid: 3e5faaeff7cd625498773c74360bfad0, type: 2}
+  - {fileID: 11400000, guid: e729f8476ded4eb499831918853ad824, type: 2}
+  - {fileID: 11400000, guid: d4cbfd3bfc9d8d544beec4e28edd7535, type: 2}
+  UI_ItemPickUp: {fileID: 8843923907534395882, guid: f95ddb10bf95eb545832735821d95516, type: 3}
+  SelectItems: []
+  text: []
+  textcontent1: []
+  textcontent2: []

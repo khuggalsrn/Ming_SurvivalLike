@@ -11104,6 +11104,7 @@ MonoBehaviour:
   weaponsDescription: []
   invWeapon:
   - {fileID: 11400000, guid: c4d82008e47553443bd7c0a57fbc5c4f, type: 2}
+  avatarNum: 0
 --- !u!54 &2110049467826793
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14055,15 +14056,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14137,15 +14138,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalPosition.x

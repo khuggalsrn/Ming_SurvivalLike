@@ -54,10 +54,12 @@ MonoBehaviour:
   FlipBurst: {fileID: 11400000, guid: 412025f13e6b90946beb238fb3febe1b, type: 2}
   cur_AttackPower: 0
   weaponbasicpower: 0
-  CanFlipBurst: 0
+  canFlipBurst: 0
   MobHit: {fileID: 6444584851410624539, guid: e0f5788581ba17d4e9d2fc8f1a90ba6a, type: 3}
   ShotGun: {fileID: 7639681763492029458, guid: 2e671f5508b1cf443bf65184196cb787, type: 3}
-  Mines: {fileID: 8569498025286523183, guid: 42e9cf42a6cefd44182dcb2eaf369d4b, type: 3}
+  Mines: {fileID: 5236406028291266256, guid: 42e9cf42a6cefd44182dcb2eaf369d4b, type: 3}
+  MineTimer: 0
+  Mine: {fileID: 0}
 --- !u!1001 &1611573976716979642
 PrefabInstance:
   m_ObjectHideFlags: 0
