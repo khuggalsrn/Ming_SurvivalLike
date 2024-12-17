@@ -462,10 +462,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 3689450117163344830}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 25
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -474,7 +474,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &7348065291340780248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f944f8cb59dad304b8701e85db7a8fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mob: {fileID: 11400000, guid: adb43c7e7c56c384da096de847a3aa47, type: 2}
+  HitPoint: 0
   isDead: 0
 --- !u!114 &-5420380488715681079
 MonoBehaviour:
@@ -504,6 +506,8 @@ MonoBehaviour:
   isAttacking: 0
   navMeshAgent: {fileID: 0}
   moveSpeed: 0
+  time: 0
+  distance: 0
 --- !u!95 &7969246180389872510
 Animator:
   serializedVersion: 5
@@ -517,7 +521,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ac12c60562d5aa14d9d0686c5054553a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -867,6 +871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6046717982111906050}
   - component: {fileID: 1360518135326452029}
+  - component: {fileID: 5914514825666008943}
   m_Layer: 0
   m_Name: Imp_M:Imp_M:Imp_M
   m_TagString: Untagged
@@ -962,6 +967,18 @@ SkinnedMeshRenderer:
     m_Center: {x: 1.1421518, y: 0.27414083, z: 0.0015697479}
     m_Extent: {x: 2.4650955, y: 1.5074801, z: 1.9047966}
   m_DirtyAABB: 0
+--- !u!114 &5914514825666008943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7659437261305378673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a910648d6ef0e204286560167615e524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7986474813782278522
 GameObject:
   m_ObjectHideFlags: 0

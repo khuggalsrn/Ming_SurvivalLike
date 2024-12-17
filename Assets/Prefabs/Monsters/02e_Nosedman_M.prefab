@@ -463,10 +463,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 3924900621679008514}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 25
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -475,7 +475,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &491369752076927182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,6 +488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f944f8cb59dad304b8701e85db7a8fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mob: {fileID: 0}
+  HitPoint: 0
   isDead: 0
 --- !u!114 &5039477027436932519
 MonoBehaviour:
@@ -518,7 +520,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ac12c60562d5aa14d9d0686c5054553a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -645,6 +647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2097284905154872039}
   - component: {fileID: 4372999112400747127}
+  - component: {fileID: 2994726872752518476}
   m_Layer: 0
   m_Name: Nosedman_M2
   m_TagString: Untagged
@@ -740,6 +743,18 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.5274231, y: 0.3751099, z: -0.06335169}
     m_Extent: {x: 1.8605564, y: 2.32299, z: 1.547056}
   m_DirtyAABB: 0
+--- !u!114 &2994726872752518476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5396263623987244958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a910648d6ef0e204286560167615e524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6452387848958859037
 GameObject:
   m_ObjectHideFlags: 0

@@ -1080,10 +1080,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 8640586871937556594}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 1
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -1092,7 +1092,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &8052735387625488694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,6 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mob: {fileID: 11400000, guid: b4cb15df5735e334f88d29e695da7062, type: 2}
+  HitPoint: 0
   isDead: 0
 --- !u!114 &-1582942491186907291
 MonoBehaviour:
@@ -1136,7 +1137,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ac12c60562d5aa14d9d0686c5054553a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

@@ -422,6 +422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1463099600990213783}
   - component: {fileID: 1511362063677105261}
+  - component: {fileID: 6157712532475346317}
   m_Layer: 0
   m_Name: Small_monkey:Small_monkey:Monkeydong_S
   m_TagString: Untagged
@@ -519,6 +520,18 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.23222256, y: -0.14623797, z: -0.0625695}
     m_Extent: {x: 1.5194043, y: 1.4570628, z: 1.6937463}
   m_DirtyAABB: 0
+--- !u!114 &6157712532475346317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3761694106017989195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a910648d6ef0e204286560167615e524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3907157181012067114
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,10 +677,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 4598516457434727088}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 25
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -676,7 +689,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &-380794335006341209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,6 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mob: {fileID: 11400000, guid: 997b52abc4850b7438750b53a6b4b10b, type: 2}
+  HitPoint: 0
   isDead: 0
 --- !u!114 &-3814686842884988012
 MonoBehaviour:
@@ -720,7 +734,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ac12c60562d5aa14d9d0686c5054553a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 

@@ -142,10 +142,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 1733243058174265462}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 25
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -154,7 +154,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &690635665100501178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mob: {fileID: 11400000, guid: 78048ba9102c2054ebba50d60ff78a5f, type: 2}
+  HitPoint: 0
   isDead: 0
 --- !u!114 &-7004416337381979398
 MonoBehaviour:
@@ -198,7 +199,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ac12c60562d5aa14d9d0686c5054553a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -614,6 +615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5207481099664972894}
   - component: {fileID: 4444766643081150478}
+  - component: {fileID: 4794571120481955082}
   m_Layer: 0
   m_Name: Small_Trestor:Treestor_S
   m_TagString: Untagged
@@ -710,6 +712,18 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.2526489, y: 0.60308737, z: -0.01354605}
     m_Extent: {x: 1.1902931, y: 1.4042091, z: 0.9645456}
   m_DirtyAABB: 0
+--- !u!114 &4794571120481955082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262594463124878183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a910648d6ef0e204286560167615e524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6747548786854044817
 GameObject:
   m_ObjectHideFlags: 0

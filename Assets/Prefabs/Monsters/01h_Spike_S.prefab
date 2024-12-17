@@ -74,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 176674529704150069}
   - component: {fileID: 6923690312882928056}
+  - component: {fileID: 5701794510167877916}
   m_Layer: 0
   m_Name: Small_Spike:Spike_S
   m_TagString: Untagged
@@ -169,6 +170,18 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.20235878, y: 0.4888396, z: 0.014163792}
     m_Extent: {x: 1.1738446, y: 1.373647, z: 0.9882192}
   m_DirtyAABB: 0
+--- !u!114 &5701794510167877916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518401792499487047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a910648d6ef0e204286560167615e524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1276644770715159145
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,10 +899,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 6946423372565806283}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 25
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -898,7 +911,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &-5373705320997131529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,6 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mob: {fileID: 11400000, guid: 0a2481e5c177fe24fb2d00d2b52c5ccf, type: 2}
+  HitPoint: 0
   isDead: 0
 --- !u!114 &9160693549832720840
 MonoBehaviour:
@@ -942,7 +956,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ac12c60562d5aa14d9d0686c5054553a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
