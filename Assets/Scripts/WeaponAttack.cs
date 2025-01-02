@@ -2,21 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class WeaponAttack : MonoBehaviour
 {
     [SerializeField] protected WeaponData Weapon;
-    [SerializeField] protected SkillData skill1;
-    [SerializeField] protected SkillData skill2;
-    [SerializeField] protected ParticleSystem Basic;
-    [SerializeField] protected GameObject BasicEffectObject;
-    [SerializeField] protected SkillData FlipBurst;
-    [SerializeField] protected float cur_AttackPower = 0; // 스킬에 의한 배수
-    [SerializeField] protected float weaponbasicpower; // 무기 상수
-    [SerializeField] protected bool canFlipBurst = false;
-    public bool CanFlipBurst
+    [SerializeField] protected float turnStamina = 0;
+    [SerializeField] protected float cur_AttackPower = 1; // 스킬에 의한 배수
+    [SerializeField] protected float weaponbasicpower = 1; // 무기 상수
+    [SerializeField] protected DamageType type;
+    public virtual bool IsSubWeapon
     {
-        get { return canFlipBurst; }
-        set { canFlipBurst = value; }
+        get { return false; }
+        set {}
+    }
+    public virtual float FinalDamage => -1;
+    public virtual float TurnStamina
+    {
+        get { return turnStamina; }
+        set { turnStamina = value; }
+    }
+    public virtual DamageType Type
+    {
+        get { return type; }
+        set { type = value; }
+    }
+    public virtual void UltimateMode()
+    {
     }
     protected virtual void Start()
     {
@@ -29,6 +40,10 @@ public class WeaponAttack : MonoBehaviour
     public virtual void AttackFalse(int atk)
     {
     }
+    public virtual float SubWeaponAttack(int num)
+    {
+        return 10f;
+    }
     public virtual void OnEffect(ParticleSystem part)
     {
     }
@@ -39,6 +54,9 @@ public class WeaponAttack : MonoBehaviour
     {
     }
     protected virtual void OnTriggerEnter(Collider other)
+    {
+    }
+    protected virtual void ApplyDamage(GameObject target)
     {
     }
 }
