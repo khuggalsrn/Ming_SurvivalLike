@@ -893,9 +893,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3598c200bd28e46bee13ecff6e9198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cur_AttackPower: 4
   MonserHitEffect: {fileID: 1689121551547027879, guid: df9503f30b661a0479cb8c4e0d48dd8a, type: 3}
-  Objectnum: 2
+  FinalDamage: 0
+  Objectnum: 3
+  InitializeParam: []
+  DebuffDamageMultiplier: 1
+  DebuffHitCount: 1
+  Drain: 0
 --- !u!1001 &2297378181959507480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -916,6 +920,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 907092492072793213, guid: 60bd1f628ab7d184e9a2299da7218810, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 907092492072793213, guid: 60bd1f628ab7d184e9a2299da7218810, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -925,7 +933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3813814919625014825, guid: 60bd1f628ab7d184e9a2299da7218810, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5653679911064174599, guid: 60bd1f628ab7d184e9a2299da7218810, type: 3}
       propertyPath: m_Enabled

@@ -894,9 +894,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed3598c200bd28e46bee13ecff6e9198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cur_AttackPower: 1
   MonserHitEffect: {fileID: 1689121551547027879, guid: df9503f30b661a0479cb8c4e0d48dd8a, type: 3}
-  Objectnum: 3
+  Objectnum: 4
 --- !u!1001 &2297378181959507480
 PrefabInstance:
   m_ObjectHideFlags: 0
