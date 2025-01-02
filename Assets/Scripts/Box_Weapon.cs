@@ -12,21 +12,26 @@ public class Box_Weapon : MonoBehaviour
     //
     //
     //
-    void Start()
+    void Update()
     {
-        }
+        // y축 기준으로 계속 회전
+        transform.Rotate(0, 120f * Time.deltaTime, 0);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         { 
-            weapon = DataBase.Instance.Items[ExcludeRandom(DataBase.Instance.Items.Count, PlayerStatus.Instance.WeaponsLabel)];
-            PlayerStatus.Instance.InvWeapon.Add(weapon);
-            PlayerStatus.Instance.WeaponAdd();
+            weapon = GameManager.Instance.Weapons[ExcludeRandom(GameManager.Instance.Weapons.Count, PlayerStatus.Instance.InvWeapon)];
+            PlayerStatus.Instance.WeaponAdd(weapon);
             Destroy(gameObject);
         }
     }
-    int ExcludeRandom(int n, IReadOnlyList<int> exclude)
+    int ExcludeRandom(int n, IReadOnlyList<WeaponData> curweapons)
     {
+        List<int> exclude = new List<int>();
+        foreach(WeaponData weapon in curweapons){
+            exclude.Add(weapon.WeaponLabel);
+        }
         // 0부터 n-1까지의 값을 배열로 만듦
         List<int> numbers = new List<int>();
         for (int i = 0; i < n; i++)
