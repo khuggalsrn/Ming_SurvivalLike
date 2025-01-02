@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33fec80aed9f1db4c8a4a547ce2ce6f7, type: 3}
+  m_Name: Weapon_Sword
+  m_EditorClassIdentifier: 
+  itemName: LongSword
+  WeaponLabel: 0
+  WeaponPower: 1
+  Item: {fileID: 3591342497989135093, guid: eb0685b5793f8f14ca26f8e6067153b0, type: 3}
+  Basic: {fileID: 2146490896665694394, guid: cbf744ad306872544b80176904761ba4, type: 3}
+  BasicEffectObject: {fileID: 0}
+  skillLv: 0
+  skill1: {fileID: 11400000, guid: d384bf11dbd9f55409cb276241bbe8d9, type: 2}
+  skill2: {fileID: 11400000, guid: 29a739be439386441ac61a31379669b5, type: 2}
+  FlipBurst: {fileID: 11400000, guid: 412025f13e6b90946beb238fb3febe1b, type: 2}
+  Ultimate: {fileID: 11400000, guid: 8ad098774a7a548479220cbff1c4ea2f, type: 2}
+  WeaponImage: {fileID: 2800000, guid: bcb5bbc66b1935245b570762603aa37f, type: 3}
+  SubWeapon: {fileID: 5236406028291266256, guid: e043344fea783014f961125be7272a3f, type: 3}
+  SubWeaponCooltime: 1

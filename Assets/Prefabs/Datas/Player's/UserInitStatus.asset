@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0380a43d1e5bcf408acbc713f650fd3, type: 3}
+  m_Name: UserInitStatus
+  m_EditorClassIdentifier: 
+  AvatarNum: 0
+  InitWeapon: {fileID: 11400000, guid: c4d82008e47553443bd7c0a57fbc5c4f, type: 2}
+  flipBurstCooltimeOfInitWeapon: 0
+  InitPlayerLevel: 1
+  InitAddiStatusValue: {fileID: 11400000, guid: 59f02273ba023bc42b85561ee9c356be, type: 2}
+  BasicStatus: {fileID: 11400000, guid: 52cfaebdab3d1c44f9af0d1edce23442, type: 2}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8e42459832bac40a6e542960cc0f69, type: 3}
+  m_Name: "SwordSkill_\u82B1\u7121\u5341\u65E5\u7D05"
+  m_EditorClassIdentifier: 
+  skillname: "\u82B1\u7121\u5341\u65E5\u7D05"
+  NeedStamina: 0
+  SkillAttackPower: 8
+  Cooltime: 1
+  Effect: {fileID: 3885490147901515252, guid: 9849483c370ffec43a912114bf09cc8f, type: 3}
+  animationname: SwordSkill2
+  SkillObject: {fileID: 5236406028291266256, guid: 44947c6de5649a843bcc7295c36844da, type: 3}
+  SkillImageTexture: {fileID: 2800000, guid: 17cf3d8e6d4f9ce44b5a99f3167da6ab, type: 3}

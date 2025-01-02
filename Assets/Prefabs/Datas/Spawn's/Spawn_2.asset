@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239f98f68a478ef47977e2013d60af19, type: 3}
+  m_Name: Spawn_2
+  m_EditorClassIdentifier: 
+  SpawnPrefabs:
+  - {fileID: 1733243058174265462, guid: 93ccd5ec94b3c6a49a1e56fbe8caa385, type: 3}
+  - {fileID: 4598516457434727088, guid: f6a1a128aab822f4b93771545c9c1115, type: 3}
+  - {fileID: 630775209584790977, guid: 82c370098a9b258418efbf34e67bc5e8, type: 3}
+  - {fileID: 3191197425991974621, guid: dc21e0c1da1e2454f97c7947da19505c, type: 3}
+  SpawnOnces: 
+  spawnAreaMin: {x: 0, y: 0}
+  spawnAreaMax: {x: 5, y: 5}
+  spawnRate: 0.5
+  spawnInterval: 40
+  spawnRadius: 5
+  InitialSpawnDelay: 5000
