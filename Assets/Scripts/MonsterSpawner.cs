@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Analytics;
 
 public class MonsterSpawner : MonoBehaviour
 {
@@ -26,7 +28,8 @@ public class MonsterSpawner : MonoBehaviour
     //
     //
     //
-    IEnumerator Initialize(float time){
+    IEnumerator Initialize(float time)
+    {
         iswaiting = true;
         yield return new WaitForSeconds(time);
         iswaiting = false;
@@ -60,6 +63,7 @@ public class MonsterSpawner : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Debug.DrawRay(transform.position, transform.up * 10f, Color.red, 0.02f);
         if (iswaiting) return;
         // 그룹 전환 타이머 업데이트
         groupTimer += 0.02f;
@@ -98,8 +102,8 @@ public class MonsterSpawner : MonoBehaviour
     void SpawnMonster()
     {
         if (monsterPrefabs.Count == 0 || currentMonsterIndex >= monsterPrefabs.Count) return;
-
         var currentMonsterInfo = monsterPrefabs[currentMonsterIndex];
+        if (GameManager.Instance.CurMonsterNum >= GameManager.Instance.MonsterNumLimit && !currentMonsterInfo.spawnOnce) return;
 
         // 스폰이 1회 제한된 경우, 이미 생성되었으면 스킵
         if (currentMonsterInfo.spawnOnce && hasSpawnedOnce) return;
@@ -113,6 +117,7 @@ public class MonsterSpawner : MonoBehaviour
 
         // 몬스터 생성
         GetMonster(spawnPosition, Quaternion.identity);
+        GameManager.Instance.CurMonsterNum++;
         if (currentMonsterInfo.spawnOnce)
         {
             hasSpawnedOnce = true;
@@ -146,7 +151,7 @@ public class MonsterSpawner : MonoBehaviour
                 Random.Range(Spawner.spawnAreaMin.y, Spawner.spawnAreaMax.y)
             );
             randomPosition += this.transform.position;
-            
+
             // NavMesh.SamplePosition으로 유효한 위치 확인
             if (NavMesh.SamplePosition(randomPosition, out NavMeshHit hit, 1f, NavMesh.AllAreas))
             {
@@ -156,7 +161,6 @@ public class MonsterSpawner : MonoBehaviour
                 return hit.position;
 
             }
-            return randomPosition;
         }
 
         // 유효한 위치를 찾지 못한 경우
