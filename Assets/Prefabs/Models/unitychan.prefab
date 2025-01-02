@@ -5703,9 +5703,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7152355885924051850}
   - component: {fileID: 7152355885916587308}
-  - component: {fileID: -4046525862493842965}
-  - component: {fileID: -4739873845236113955}
-  - component: {fileID: 9189561905557294842}
   - component: {fileID: -3558143222488421147}
   - component: {fileID: 4798700026251099347}
   m_Layer: 0
@@ -5753,59 +5750,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-4046525862493842965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7152355885923891114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8fa08347ddf13546bde1ad27fd95c93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 5
-  isGrounded: 1
---- !u!114 &-4739873845236113955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7152355885923891114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc5ef1a19a216e4eb4689fac3dd91f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurWeaponObject: {fileID: 0}
-  CurWeaponData: {fileID: 0}
-  CurWeaponnum: 0
-  isAttacking: 0
-  curattacknum: -1
---- !u!114 &9189561905557294842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7152355885923891114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e318d461d85b794c831dcafc7d3350c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponInRightHand: {fileID: 0}
-  weaponInLeftHand: {fileID: 0}
-  curWeaponnum: 0
-  curskillLv: 0
-  weaponsLv: 00000000000000000000000000000000
-  weaponsSkillLv: 00000000000000000000000000000000
-  weaponsLabel: ffffffffffffffffffffffffffffffff
-  weaponsDescription: []
-  invWeapon:
-  - {fileID: 11400000, guid: 8d756cb776c2b304480b8e1daae0a7ed, type: 2}
 --- !u!54 &-3558143222488421147
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7202,27 +7146,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7271218
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.58603245
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.2238931
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.27880445
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -130
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -7256,15 +7200,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.16012508
+      value: -0.0475
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00020982337
+      value: 0.0037
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.027562376
+      value: -0.0056
       objectReference: {fileID: 0}
     - target: {fileID: 8267651181314578362, guid: 811cf5f99af03fb4a835c924c767536e, type: 3}
       propertyPath: m_LocalRotation.w

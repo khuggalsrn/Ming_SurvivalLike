@@ -11000,9 +11000,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7104382067272920236}
   - component: {fileID: 3780764250608826070}
-  - component: {fileID: -2027006983130529087}
-  - component: {fileID: 1766369524716519871}
-  - component: {fileID: 5530375087317152650}
   - component: {fileID: 2110049467826793}
   - component: {fileID: 1058291921612284004}
   m_Layer: 0
@@ -11051,60 +11048,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-2027006983130529087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7627977872799790614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8fa08347ddf13546bde1ad27fd95c93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 5
-  isGrounded: 1
---- !u!114 &1766369524716519871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7627977872799790614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc5ef1a19a216e4eb4689fac3dd91f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurWeaponObject: {fileID: 0}
-  CurWeaponData: {fileID: 0}
-  CurWeaponnum: 0
-  isAttacking: 0
-  curattacknum: -1
---- !u!114 &5530375087317152650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7627977872799790614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e318d461d85b794c831dcafc7d3350c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponInRightHand: {fileID: 0}
-  weaponInLeftHand: {fileID: 0}
-  curWeaponnum: 0
-  curskillLv: 0
-  weaponsLv: 00000000000000000000000000000000
-  weaponsSkillLv: 00000000000000000000000000000000
-  weaponsLabel: ffffffffffffffffffffffffffffffff
-  weaponsDescription: []
-  invWeapon:
-  - {fileID: 11400000, guid: c4d82008e47553443bd7c0a57fbc5c4f, type: 2}
-  avatarNum: 0
 --- !u!54 &2110049467826793
 Rigidbody:
   m_ObjectHideFlags: 0
