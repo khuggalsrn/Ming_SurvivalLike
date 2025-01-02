@@ -2,37 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunSkillObject : MonoBehaviour
+public class GunSkillObject : SkillObject
 {
-    [SerializeField] ParticleSystem MineEffect;
-    [SerializeField] float cur_attackPower;
-    [SerializeField] float mineDamage;
-    GameObject mine;
-    public float cur_AttackPower{
-        get { return cur_attackPower; }
-        set { cur_attackPower = value;}
+    // [SerializeField] protected ParticleSystem MonserHitEffect;
+    // [SerializeField] protected float finalDamage;
+    // public float FinalDamage{
+    //     get { return finalDamage; }
+    //     set { finalDamage = value; }
+    // }
+    public int RemainTargetNum = 1;
+    //
+    //
+    //
+    //
+    //
+    //
+    void Start()
+    {
+        Destroy(this.gameObject, 2f);
+        if (GetComponent<Rigidbody>())
+        {
+            GetComponent<Rigidbody>().velocity = PlayerStatus.Instance.transform.forward * 5;
+        }
+        else
+        {
+            gameObject.AddComponent<Rigidbody>().velocity = PlayerStatus.Instance.transform.forward * 5;
+        }
     }
-    public float MineDamage{
-        get { return mineDamage; }
-        set { mineDamage = value;}
-    }
-    //
-    //
-    //
-    //
-    //
-    //
-    void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.CompareTag("Monster")){
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Monster"))
+        {
             transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
         }
     }
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.CompareTag("Monster"))
         {
-            other.gameObject.GetComponent<MonsterStatus>().OnDamaged(MineDamage);
-            ParticleSystem temp = Instantiate(MineEffect, other.transform);
-            Destroy(temp.gameObject, 5f);
+            other.gameObject.GetComponent<MonsterStatus>().OnDamaged(FinalDamage, DamageType.Piercing);
+            ParticleSystem temp = Instantiate(MonserHitEffect, other.transform);
+            temp.transform.SetParent(null, true);
+            Destroy(temp.gameObject, 10f);
+            RemainTargetNum -= 1;
+            if (RemainTargetNum < 1) Destroy(gameObject, 0.1f);
         }
     }
 }
