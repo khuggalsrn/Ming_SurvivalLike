@@ -6,39 +6,31 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     GameObject MousePointer;
-    [SerializeField] float jumpForce = 100f;
+    [SerializeField] float jumpForce = 5;
     Rigidbody rb;
     Animator animator;
     float Dashing = 10f;
     bool Dashed = false;
     [SerializeField] bool isGrounded = true;
     Text DashCool;
+    Vector3 moveDirection;
+    Vector3 moveVelocity => moveDirection* PlayerStatus.Instance.Value_Speed;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         DashCool = GameObject.Find("DashCool").GetComponent<Text>();
-        MousePointer = DataBase.Instance.transform.GetChild(0).gameObject;
+        MousePointer = GameManager.Instance.transform.GetChild(0).gameObject;
     }
     private void FixedUpdate()
     {
-        // 입력 값 받기
-        float horizontal = Input.GetAxisRaw("Horizontal"); // A, D 키
-        float vertical = Input.GetAxisRaw("Vertical"); // W, S 키
-        Dashing -= Dashing < 0f ? 0f : 0.02f;
-        // 입력 벡터 계산 (월드 좌표 기준: Z-forward, X-right)
-        Vector3 moveDirection = new Vector3(horizontal, 0, vertical).normalized;
-
         // 캐릭터 움직이기
         if (moveDirection.magnitude > 0)
         {
-            // Rigidbody를 이용해 이동 처리
-            Vector3 moveVelocity = moveDirection * PlayerStatus.Instance.Value_Speed;
-            if (Input.GetKey(KeyCode.LeftShift) && PlayerStatus.Instance.Staminas[PlayerStatus.Instance.CurWeaponnum] >= 10 &&
-                Dashing <= 0f)
+            if (Input.GetKey(KeyCode.LeftShift) && Dashing <= 0f && PlayerStatus.Instance.Staminas[PlayerStatus.Instance.CurWeaponnum] >= 10)
             {
                 Dashed = true;
-                Dash(moveVelocity);
+                Dash();
             }
             rb.velocity = rb.velocity.magnitude<5?new Vector3(moveVelocity.x, rb.velocity.y, moveVelocity.z) : rb.velocity; // y축 속도 유지
 
@@ -64,6 +56,12 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("Jump");
             isGrounded = false;
         }
+        // 입력 값 받기
+        float horizontal = Input.GetAxisRaw("Horizontal"); // A, D 키
+        float vertical = Input.GetAxisRaw("Vertical"); // W, S 키
+        Dashing -= Dashing < 0f ? 0f : 0.02f;
+        // 입력 벡터 계산 (월드 좌표 기준: Z-forward, X-right)
+        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -72,17 +70,15 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
-    void Dash(Vector3 Dir)
+    public void Dash()
     {
-        float dashDistance = Dir.magnitude;
-        PlayerStatus.Instance.Staminas[PlayerStatus.Instance.CurWeaponnum] -= 10;
+        float dashDistance = moveVelocity.magnitude;
         
         // 전방 방향으로 대시 거리만큼 순간이동
-        Vector3 dashTarget = transform.position + Dir.normalized * dashDistance;
-        transform.position = dashTarget;
+        Vector3 dashTarget = transform.position + moveVelocity.normalized * dashDistance;
 
         // 아래로 Raycast를 쏴서 Ground 찾기
-        RaycastHit[] hits = Physics.RaycastAll(transform.position + Vector3.up * 5f, Vector3.down, 17f, LayerMask.GetMask("Ground","Object"));
+        RaycastHit[] hits = Physics.RaycastAll(dashTarget + Vector3.up * 5f, Vector3.down, 17f, LayerMask.GetMask("Ground","Object","Roof"));
         if (hits.Length > 0)
         {
             Debug.Log("바닥찾았다");
@@ -100,7 +96,12 @@ public class PlayerController : MonoBehaviour
             }
 
             // 가장 가까운 지점으로 위치를 이동
-            transform.position = new Vector3(transform.position.x, closestY+1f, transform.position.z);
+            transform.position = new Vector3(closestPoint.x, closestY+3f, closestPoint.z);
+            PlayerStatus.Instance.Staminas[PlayerStatus.Instance.CurWeaponnum] -= 10;
+        }
+        else{
+            Dashing = 0f;
+
         }
 
 
