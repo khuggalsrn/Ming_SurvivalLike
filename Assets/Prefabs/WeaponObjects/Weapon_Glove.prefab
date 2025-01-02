@@ -147,10 +147,10 @@ GameObject:
   - component: {fileID: 3591342497989135090}
   - component: {fileID: 3591342497989135088}
   - component: {fileID: 3591342497989135091}
-  - component: {fileID: -2721401270795923378}
   - component: {fileID: -6593358843176285277}
+  - component: {fileID: -1674837688386341611}
   m_Layer: 0
-  m_Name: Weapon_LongSword
+  m_Name: Weapon_Glove
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +189,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3591342497989135093}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -224,25 +224,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-2721401270795923378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3591342497989135093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93e1876e5f7f51e4483c07f616eb5a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Weapon: {fileID: 11400000, guid: c4d82008e47553443bd7c0a57fbc5c4f, type: 2}
-  turnStamina: 0
-  cur_AttackPower: 1
-  weaponbasicpower: 1
-  type: 0
-  UltWeapon: {fileID: 3786726686612456252, guid: 089fee205c12de840b19b6353d444fa9, type: 3}
-  UltWeaponMat: {fileID: 2100000, guid: 02a49e5f62e2c9844bd074bb7d1ae2ea, type: 2}
 --- !u!54 &-6593358843176285277
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -259,6 +240,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-1674837688386341611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3591342497989135093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb7f092fbfb26d4aac8f0666c9b3724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 11400000, guid: 97e80e6d14caabc449cba4ccb84c5c8a, type: 2}
+  turnStamina: 0
+  cur_AttackPower: 1
+  weaponbasicpower: 1
+  type: 2
 --- !u!1 &8365434095466004714
 GameObject:
   m_ObjectHideFlags: 0
