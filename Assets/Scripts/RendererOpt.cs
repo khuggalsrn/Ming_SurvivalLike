@@ -11,28 +11,28 @@ public class RendererOpt : MonoBehaviour
         myrenderer = GetComponent<SkinnedMeshRenderer>();
         mainCamera = Camera.main;
     }
-    void Update()
+    void FixedUpdate()
     {
-        if (myrenderer == null || mainCamera == null)
-            return;
+        // if (myrenderer == null || mainCamera == null)
+        //     return;
 
-        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
-        if (GeometryUtility.TestPlanesAABB(planes, myrenderer.bounds))
-        {
-            if (!myrenderer.enabled)
-            {
-                myrenderer.enabled = true;
-                Debug.Log($"{gameObject.name} became visible!");
-            }
-        }
-        else
-        {
-            if (myrenderer.enabled)
-            {
-                myrenderer.enabled = false;
-                Debug.Log($"{gameObject.name} became invisible!");
-            }
-        }
+        // Plane[] planes = GeometryUtility.CalculateFrustumPlanes(mainCamera);
+        // if (GeometryUtility.TestPlanesAABB(planes, myrenderer.bounds))
+        // {
+        //     if (!myrenderer.enabled)
+        //     {
+        //         myrenderer.enabled = true;
+        //         // Debug.Log($"{gameObject.name} became visible!");
+        //     }
+        // }
+        // else
+        // {
+        //     if (myrenderer.enabled)
+        //     {
+        //         myrenderer.enabled = false;
+        //         // Debug.Log($"{gameObject.name} became invisible!");
+        //     }
+        // }
     }
     // void OnBecameInvisible()
     // {
